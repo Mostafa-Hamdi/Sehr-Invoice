@@ -17,7 +17,24 @@
         justify-content: center;
         padding: 20px;
       }
+      .print {
+        position: absolute;
+        top: 50px;
+        left: 200px;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        z-index: 1000;
+      }
 
+      .print:hover {
+        background-color: #555;
+      }
       .invoice {
         width: 7.3cm;
         height: 24.5cm;
@@ -169,12 +186,19 @@
         font-size: 15px;
         line-height: 1.2;
       }
+      @media print {
+        .print {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
+    <button class="print" onclick="handlePrint()">🖨 Print</button>
+
     <div class="invoice">
       <div class="logo">
-        <img src="./logo.png" alt="logo" />
+        <img src="/logo.png" alt="logo" />
       </div>
 
       <div class="header">
@@ -307,6 +331,10 @@
         </div>
       </div>
     </div>
+    <script>
+      const handlePrint = () => {
+        window.print();
+      };
+    </script>
   </body>
 </html>
-
