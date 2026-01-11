@@ -186,11 +186,27 @@
         font-size: 15px;
         line-height: 1.2;
       }
-      @media print {
-        .print {
+      @page {
+  size: 80mm auto;   /* or 7.3cm auto */
+  margin: 0;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .invoice {
+    width: 7.3cm;
+    max-width: 7.3cm;
+    margin: 0 auto;
+  }
+  .print {
           display: none;
         }
-      }
+}
+
     </style>
   </head>
   <body>
@@ -338,5 +354,6 @@
     </script>
   </body>
 </html>
+
 
 
