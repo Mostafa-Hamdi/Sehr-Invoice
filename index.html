@@ -36,6 +36,9 @@
         background-color: #555;
       }
       .invoice {
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
         width: 7.3cm;
         height: 24.5cm;
         background: white;
@@ -43,13 +46,16 @@
         padding: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
+      .invoice-container {
+        flex: 1;
+      }
 
       .logo {
         text-align: center;
         margin-bottom: 0px;
       }
       .logo img {
-        width: 100px;
+        width: 150px;
       }
       .header {
         text-align: center;
@@ -186,122 +192,103 @@
         font-size: 15px;
         line-height: 1.2;
       }
-      @page {
-  size: 80mm auto;   /* or 7.3cm auto */
-  margin: 0;
-}
-
-@media print {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .invoice {
-    width: 7.3cm;
-    max-width: 7.3cm;
-    margin: 0 auto;
-  }
-  .print {
+      @media print {
+        .print {
           display: none;
         }
-}
-
+        .invoice {
+          margin: 0 auto; /* horizontal centering */
+        }
+      }
     </style>
   </head>
   <body>
     <button class="print" onclick="handlePrint()">🖨 Print</button>
 
     <div class="invoice">
-      <div class="logo">
-        <img src="./logo.png" alt="logo" />
-      </div>
-
-      <div class="header">
-        <h1>Welcome To Oils Magic</h1>
-      </div>
-
-      <div class="info-section">
-        <div class="info-row">
-          <span class="info-label">Customer Name:</span>
-          <span class="info-value">مالك حمادي</span>
+      <div class="invoice-container">
+        <div class="logo">
+          <img src="/logo.png" alt="logo" />
         </div>
-        <div class="info-row">
-          <span class="info-label">Phone Number:</span>
-          <span class="info-value">01023219515</span>
+
+        <div class="header">
+          <h1>Welcome To Oils Magic</h1>
         </div>
-        <div class="info-row">
-          <span class="info-label">DE. Number:</span>
-          <span class="info-value">SR53305536</span>
+
+        <div class="info-section">
+          <div class="info-row">
+            <span class="info-label">Customer Name:</span>
+            <span class="info-value">مالك حمادي</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Phone Number:</span>
+            <span class="info-value">01023219515</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Phone Number(2):</span>
+            <span class="info-value">01023219515</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">DE. Number:</span>
+            <span class="info-value">SR53305536</span>
+          </div>
         </div>
+
+        <div class="address-header">The Address</div>
+
+        <div class="address-content">
+          طنط كفرزيت الغربر جمب المنفد التلج عتد صيدلية د.نامر حمادي المقيصاد
+        </div>
+
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>فردينة صيانة السير</td>
+              <td>80</td>
+              <td>80</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>لاكتر</td>
+              <td>155</td>
+              <td>155</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>حك الجب</td>
+              <td>155</td>
+              <td>155</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>زيتيمل</td>
+              <td>165</td>
+              <td>165</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>صدط</td>
+              <td>300</td>
+              <td>300</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>عتب ورق السير</td>
+              <td>190</td>
+              <td>190</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="address-header">The Address</div>
-
-      <div class="address-content">
-        طنط كفرزيت الغربر جمب المنفد التلج عتد صيدلية د.نامر حمادي المقيصاد
-      </div>
-
-      <table class="products-table">
-        <thead>
-          <tr>
-            <th>Quantity</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>فردينة صيانة السير</td>
-            <td>80</td>
-            <td>80</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>لاكتر</td>
-            <td>155</td>
-            <td>155</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>حك الجب</td>
-            <td>155</td>
-            <td>155</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>زيتيمل</td>
-            <td>165</td>
-            <td>165</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>صدط</td>
-            <td>300</td>
-            <td>300</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>عتب ورق السير</td>
-            <td>190</td>
-            <td>190</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>زيريت ×100</td>
-            <td>400</td>
-            <td>400</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>سيده</td>
-            <td>370</td>
-            <td>370</td>
-          </tr>
-        </tbody>
-      </table>
 
       <table class="summary">
         <tr>
@@ -354,7 +341,3 @@
     </script>
   </body>
 </html>
-
-
-
-
